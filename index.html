@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>안효진 · 포트폴리오 | 사업개발·BD</title>
+<meta property="og:type" content="website">
+<meta property="og:title" content="안효진 · 사업개발·BD 포트폴리오">
+<meta property="og:description" content="0 to 1, 새로운 기회를 발굴해 매출로 키웁니다 — 베이커리 20배·전력중개 3.8배·제본 약 5배·비개발자 AI 운영 자동화">
+<meta property="og:image" content="https://anna09ips.github.io/portfolio/og-image.jpg">
+<meta property="og:url" content="https://anna09ips.github.io/portfolio/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://anna09ips.github.io/portfolio/og-image.jpg">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<style>
+  :root{
+    --ink:#15161a; --ink2:#3b3d44; --muted:#7c7f88;
+    --line:#e7e7ea; --bg:#ffffff; --bg2:#f7f6f4;
+    --accent:#ff3b3b; --accent-soft:#fff0ee; --accent-ink:#c81f1f;
+    --gold:#0f9d8c;
+    --maxw:1080px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:"Pretendard Variable",Pretendard,system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.65;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
+  a{color:inherit;text-decoration:none}
+  /* NAV */
+  nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;}
+  nav .brand{font-weight:800;letter-spacing:-.02em;font-size:16px;}
+  nav .brand span{color:var(--accent)}
+  nav .links{display:flex;gap:26px;font-size:14px;font-weight:600;color:var(--ink2)}
+  nav .links a:hover{color:var(--accent)}
+  @media(max-width:680px){nav .links{display:none}}
+  /* HERO */
+  .hero{padding:88px 0 64px;background:linear-gradient(180deg,#fff 0%,var(--bg2) 100%);border-bottom:1px solid var(--line);}
+  .tagline{display:inline-block;font-size:13px;font-weight:700;color:var(--accent-ink);background:var(--accent-soft);padding:6px 14px;border-radius:999px;letter-spacing:.01em;margin-bottom:22px;}
+  .hero h1{font-size:clamp(25px,3.4vw,38px);font-weight:800;letter-spacing:-.02em;line-height:1.35;max-width:900px;word-break:keep-all;}
+  .hero h1 em{font-style:normal;color:var(--accent)}
+  .hero .sub{margin-top:22px;font-size:clamp(16px,2.1vw,19px);color:var(--ink2);max-width:680px;font-weight:500;line-height:1.7;word-break:keep-all;}
+  .hero .meta{margin-top:26px;display:flex;flex-wrap:wrap;gap:8px 22px;font-size:14px;color:var(--muted);font-weight:600}
+  .hero .meta b{color:var(--ink)}
+  .metrics{margin-top:46px;display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
+  @media(max-width:680px){.metrics{grid-template-columns:1fr}}
+  .metric{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px 24px;}
+  .metric .n{font-size:30px;font-weight:800;letter-spacing:-.03em;color:var(--ink)}
+  .metric .n .u{font-size:16px;color:var(--accent);font-weight:700;margin-left:2px}
+  .metric .l{margin-top:4px;font-size:13px;color:var(--muted);font-weight:600;line-height:1.4}
+  .metric .mbul{margin-top:12px;list-style:none;display:grid;gap:6px}
+  .metric .mbul li{position:relative;padding-left:14px;font-size:14px;color:var(--ink2);font-weight:600}
+  .metric .mbul li::before{content:"";position:absolute;left:2px;top:8px;width:5px;height:5px;border-radius:50%;background:var(--accent)}
+  .metric .mbul b{color:var(--accent);font-weight:800}
+  .metric .mbul .rv{display:block;margin-top:1px;color:var(--muted);font-weight:600;font-size:12px}
+  .principles{margin-top:16px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  @media(max-width:680px){.principles{grid-template-columns:1fr}}
+  .principle{border:1px solid var(--line);border-radius:14px;padding:16px 18px;background:#fff}
+  .principle .pt{font-size:14px;font-weight:800;color:var(--ink)}
+  .principle .pd{margin-top:5px;font-size:12.5px;color:var(--ink2);line-height:1.5}
+  .principle .pd b{color:var(--accent);font-weight:700}
+  /* SECTION */
+  section{padding:78px 0;border-bottom:1px solid var(--line);}
+  .eyebrow{font-size:13px;font-weight:800;letter-spacing:.14em;color:var(--accent);text-transform:uppercase;}
+  .h2{font-size:clamp(26px,4vw,38px);font-weight:800;letter-spacing:-.03em;margin-top:10px;line-height:1.15}
+  .lead{margin-top:14px;color:var(--ink2);font-size:16px;max-width:720px;word-break:keep-all;line-height:1.65}
+  /* 핵심역량 */
+  .caps{margin-top:40px;display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
+  @media(max-width:680px){.caps{grid-template-columns:1fr}}
+  .cap{border:1px solid var(--line);border-radius:18px;padding:28px;background:var(--bg);transition:.2s;}
+  .cap:hover{border-color:var(--accent);transform:translateY(-3px);box-shadow:0 14px 30px -18px rgba(255,59,59,.35)}
+  .cap .ic{width:42px;height:42px;border-radius:12px;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:16px}
+  .cap h3{font-size:19px;font-weight:800;letter-spacing:-.02em}
+  .cap p{margin-top:8px;color:var(--ink2);font-size:14.5px}
+  .cap .tags{margin-top:14px;display:flex;flex-wrap:wrap;gap:7px}
+  .cap .tags span{font-size:12px;font-weight:600;color:var(--ink2);background:var(--bg2);border:1px solid var(--line);padding:4px 10px;border-radius:999px}
+  /* TIMELINE */
+  .tl{margin-top:42px;position:relative;}
+  .tl::before{content:"";position:absolute;left:13px;top:6px;bottom:6px;width:2px;background:var(--line)}
+  .job{position:relative;padding-left:46px;padding-bottom:34px}
+  .job:last-child{padding-bottom:0}
+  .job .dot{position:absolute;left:6px;top:5px;width:16px;height:16px;border-radius:50%;background:#fff;border:3px solid var(--accent)}
+  .job .top{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 12px}
+  .job .co{font-size:20px;font-weight:800;letter-spacing:-.02em}
+  .job .role{font-size:14px;font-weight:700;color:var(--accent-ink);background:var(--accent-soft);padding:2px 10px;border-radius:999px}
+  .job .when{font-size:13.5px;color:var(--muted);font-weight:600;margin-left:auto}
+  .job .info{margin-top:6px;font-size:13.5px;color:var(--muted);font-weight:500}
+  .job ul{margin-top:12px;list-style:none;display:grid;gap:7px}
+  .job li{position:relative;padding-left:18px;font-size:14.5px;color:var(--ink2)}
+  .job li::before{content:"";position:absolute;left:2px;top:10px;width:5px;height:5px;border-radius:50%;background:var(--accent)}
+  .job li b{color:var(--ink);font-weight:700}
+  /* PROJECTS */
+  .projs{margin-top:42px;display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+  @media(max-width:680px){.projs{grid-template-columns:1fr}}
+  .proj{border:1px solid var(--line);border-radius:20px;overflow:hidden;background:#fff;display:flex;flex-direction:column}
+  .proj .head{padding:24px 24px 0}
+  .proj .kpi{font-size:34px;font-weight:800;letter-spacing:-.03em;color:var(--accent)}
+  .proj .kpi .u{font-size:16px;color:var(--ink2);font-weight:700}
+  .proj h3{margin-top:6px;font-size:18px;font-weight:800;letter-spacing:-.02em}
+  .proj .ctx{margin-top:2px;font-size:13px;color:var(--muted);font-weight:600}
+  .proj .body{padding:14px 24px 24px;font-size:14px;color:var(--ink2);flex:1}
+  .proj .body p{margin-top:8px}
+  .proj .body p:first-child{margin-top:0}
+  .proj .role-line{margin-top:14px;padding-top:14px;border-top:1px solid var(--line);font-size:13px}
+  .proj .role-line b{color:var(--gold);font-weight:800}
+  /* GALLERY */
+  .gal{margin-top:32px;display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  @media(min-width:901px){
+    .gal{grid-template-columns:repeat(6,1fr)}
+    .gal .gcard:nth-child(1),.gal .gcard:nth-child(2){grid-column:span 3}
+    .gal .gcard:nth-child(3),.gal .gcard:nth-child(4),.gal .gcard:nth-child(5){grid-column:span 2}
+  }
+  @media(max-width:600px){.gal{grid-template-columns:1fr}}
+  .gcard{display:block;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#fff;transition:.2s}
+  .gcard:hover{border-color:var(--accent);transform:translateY(-3px);box-shadow:0 16px 34px -20px rgba(255,59,59,.4)}
+  .gthumb{height:230px;overflow:hidden;background:var(--bg2);border-bottom:1px solid var(--line)}
+  .gthumb img{width:100%;display:block}
+  .ginfo{padding:20px 22px}
+  .gtitle{font-size:17px;font-weight:800;letter-spacing:-.02em}
+  .gdesc{margin-top:6px;font-size:14px;color:var(--ink2)}
+  .grole{margin-top:12px;font-size:11.5px;font-weight:700;color:var(--accent-ink);background:var(--accent-soft);display:inline-block;padding:4px 11px;border-radius:999px}
+  .gview{margin-top:10px;font-size:12.5px;color:var(--muted);font-weight:700}
+  .gcard:hover .gview{color:var(--accent)}
+  .worksub{margin-top:46px;font-size:20px;font-weight:800;letter-spacing:-.02em;color:var(--ink)}
+  /* DOCS */
+  .docs{margin-top:42px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  @media(max-width:680px){.docs{grid-template-columns:1fr}}
+  .doccard{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:18px;padding:24px;background:#fff;transition:.2s}
+  .doccard:hover{border-color:var(--accent);transform:translateY(-3px);box-shadow:0 14px 30px -18px rgba(255,59,59,.35)}
+  .doccard .dic{font-size:26px}
+  .doccard .dk{margin-top:12px;font-size:11.5px;font-weight:800;color:var(--accent);letter-spacing:.04em}
+  .doccard .dt{margin-top:2px;font-size:17px;font-weight:800;letter-spacing:-.02em}
+  .doccard .dd{margin-top:7px;font-size:13.5px;color:var(--ink2);flex:1}
+  .doccard .dgo{margin-top:14px;font-size:13px;font-weight:700;color:var(--accent)}
+  .doccard.soon{opacity:.55}
+  .doccard.soon .dgo{color:var(--muted)}
+  /* MAPPING */
+  .map-sec{background:var(--bg2)}
+  .map{margin-top:38px;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#fff}
+  .map .row{display:grid;grid-template-columns:1fr 28px 1.2fr;align-items:center;gap:0;border-bottom:1px solid var(--line)}
+  .map .row:last-child{border-bottom:0}
+  .map .row.hd{background:var(--ink);color:#fff;font-weight:700;font-size:13px}
+  .map .row.hd .c{color:#fff}
+  .map .c{padding:16px 20px;font-size:14.5px}
+  .map .c.jd{font-weight:700;color:var(--ink)}
+  .map .c.me{color:var(--ink2)}
+  .map .arrow{display:flex;align-items:center;justify-content:center;color:var(--accent);font-weight:800}
+  @media(max-width:680px){
+    .map .row,.map .row.hd{grid-template-columns:1fr}
+    .map .arrow{display:none}
+    .map .c{padding:12px 18px}
+    .map .c.jd{padding-bottom:2px}
+    .map .c.me{padding-top:2px;border-bottom:1px solid var(--line)}
+    .map .row:last-child .c.me{border-bottom:0}
+  }
+  /* AI SECTION (dark) */
+  .ai{background:#15161a;color:#fff;border-bottom:none}
+  .ai .eyebrow{color:#ff6b6b}
+  .ai .h2{color:#fff}
+  .ai .lead{color:#b8bac2}
+  .ai .lead b{color:#fff}
+  .ai .badge-row{margin-top:22px;display:flex;flex-wrap:wrap;gap:9px}
+  .ai .tag{font-size:12.5px;font-weight:700;color:#ffd9d6;background:rgba(255,59,59,.16);border:1px solid rgba(255,107,107,.35);padding:5px 13px;border-radius:999px}
+  .ai-metrics{margin-top:40px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  @media(max-width:680px){.ai-metrics{grid-template-columns:1fr}}
+  .ai-metric{border:1px solid #2b2d34;border-radius:16px;padding:22px 22px;background:#1b1d22}
+  .ai-metric .n{font-size:26px;font-weight:800;letter-spacing:-.02em;color:#ff6b6b}
+  .ai-metric .l{margin-top:5px;font-size:13.5px;color:#cfd1d8;font-weight:600;line-height:1.45}
+  .ai-metrics-2{grid-template-columns:repeat(2,1fr)}
+  .ai-feature{margin-top:18px;display:flex;align-items:center;gap:20px;border:1px solid rgba(255,107,107,.4);border-radius:18px;padding:22px 26px;background:linear-gradient(100deg,rgba(255,59,59,.14),rgba(27,29,34,.2));transition:.2s;cursor:pointer}
+  .ai-feature:hover{border-color:#ff3b3b;transform:translateY(-2px);box-shadow:0 16px 34px -20px rgba(255,59,59,.6)}
+  .ai-feature .fic{font-size:30px;flex-shrink:0}
+  .ai-feature .ftxt{flex:1}
+  .ai-feature .fk{font-size:11.5px;font-weight:800;color:#ff6b6b;letter-spacing:.06em}
+  .ai-feature .ft{font-size:19px;font-weight:800;color:#fff;letter-spacing:-.02em;margin-top:2px}
+  .ai-feature .fd{font-size:13.5px;color:#b8bac2;margin-top:3px}
+  .ai-feature .fgo{flex-shrink:0;font-size:14px;font-weight:800;color:#fff;background:#ff3b3b;padding:11px 18px;border-radius:999px;white-space:nowrap}
+  @media(max-width:640px){.ai-feature{flex-wrap:wrap}.ai-feature .fgo{width:100%;text-align:center}}
+  .ai-projs{margin-top:16px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  @media(max-width:980px){.ai-projs{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:600px){.ai-projs{grid-template-columns:1fr}}
+  .ai-card{border:1px solid #2b2d34;border-radius:18px;padding:24px;background:#1b1d22;display:flex;flex-direction:column}
+  .ai-card .tt{font-size:17px;font-weight:800;letter-spacing:-.02em;color:#fff}
+  .ai-card .st{margin-top:2px;font-size:12.5px;color:#ff6b6b;font-weight:700}
+  .ai-card .ph{margin-top:14px;font-size:13.5px;color:#b8bac2;flex:1}
+  .ai-card .ph b{color:#fff;font-weight:700}
+  .ai-card .stack{margin-top:14px;display:flex;flex-wrap:wrap;gap:6px}
+  .ai-card .stack span{font-size:11px;font-weight:600;color:#cfd1d8;background:#23252b;border:1px solid #33353c;padding:3px 9px;border-radius:7px}
+  .ai-results{margin-top:16px;border:1px solid #2b2d34;border-radius:18px;padding:26px;background:#1b1d22}
+  .ai-results .rt{font-size:16px;font-weight:800;color:#fff;letter-spacing:-.02em}
+  .ai-results .rs{font-size:13px;color:#b8bac2;margin-top:3px}
+  .ai-results .rs b{color:#ff8b8b;font-weight:700}
+  .chartbox{margin-top:20px;height:260px;position:relative}
+  .rmetrics{margin-top:20px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  @media(max-width:680px){.rmetrics{grid-template-columns:1fr}}
+  .rm{border:1px solid #2b2d34;border-radius:14px;padding:16px 18px;background:#15161a}
+  .rm .n{font-size:22px;font-weight:800;color:#ff6b6b;letter-spacing:-.02em}
+  .rm .l{margin-top:3px;font-size:12.5px;color:#cfd1d8;font-weight:600;line-height:1.4}
+  .ai-grip{margin-top:18px;border:1px dashed rgba(255,107,107,.4);border-radius:16px;padding:20px 24px;background:rgba(255,59,59,.06)}
+  .ai-grip .gt{font-size:13px;font-weight:800;color:#ff6b6b;letter-spacing:.02em}
+  .ai-grip ul{margin-top:10px;list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:7px 24px}
+  @media(max-width:680px){.ai-grip ul{grid-template-columns:1fr}}
+  .ai-grip li{position:relative;padding-left:18px;font-size:13.5px;color:#d4d6dd}
+  .ai-grip li::before{content:"→";position:absolute;left:0;color:#ff6b6b;font-weight:800}
+  .ai-grip li b{color:#fff;font-weight:700}
+  /* CLOSING */
+  .close{text-align:center;padding:90px 0}
+  .close .h2{max-width:760px;margin:10px auto 0}
+  .close .quote{margin-top:26px;font-size:15px;color:var(--muted);max-width:600px;margin-left:auto;margin-right:auto;font-style:italic}
+  .contact{margin-top:34px;display:inline-flex;flex-wrap:wrap;gap:12px;justify-content:center}
+  .contact a{font-size:14px;font-weight:700;border:1px solid var(--line);border-radius:999px;padding:11px 22px;transition:.2s}
+  .contact a.primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+  .contact a:hover{border-color:var(--accent);color:var(--accent)}
+  .contact a.primary:hover{color:#fff;opacity:.9}
+  footer{padding:34px 0;text-align:center;font-size:12.5px;color:var(--muted)}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="brand">안효진<span>.</span></div>
+    <div class="links">
+      <a href="#cap">핵심역량</a>
+      <a href="#ai">AI 운영시스템</a>
+      <a href="#career">경력</a>
+      <a href="#work">작업물</a>
+      <a href="#fit">직무 적합성</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="tagline">그립컴퍼니</span>
+    <h1><em>0 to 1</em>, 새로운 기회를 발굴하고<br>다양한 효율화를 통해 비즈니스 스케일업을 만들어왔습니다.</h1>
+    <p class="sub">교육·에너지·F&amp;B·식품·IP 플랫폼까지 빠른 학습력으로 다양한 도메인 프로젝트를 경험하며, 0 to 1을 만드는 일을 반복해온 BO입니다. 사업 기회 발굴, MVP 실행, 성장, 리텐션, 사업 체질 개선 등을 통해 <b>매출 성장</b>을 이끌었습니다.</p>
+    <div class="meta">
+      <span><b>안효진</b></span>
+      <span>경력 <b>10년 4개월</b></span>
+      <span>한양대학교 문화인류학과 졸업</span>
+      <span><b>hji5816@gmail.com</b></span>
+    </div>
+    <div class="metrics">
+      <div class="metric"><div class="n">10<span class="u">년 4개월</span></div><div class="l">5개 도메인 사업개발·BO 경력</div></div>
+      <div class="metric">
+        <div class="n">성장 경험</div>
+        <ul class="mbul">
+          <li>제본 서비스 약 <b>5배</b><span class="rv">월 ~200만 → ~1,000만 원대</span></li>
+          <li>ATD 베이커리 사업부 <b>20배</b><span class="rv">월 1,200만 → 2억 4천만 원</span></li>
+          <li>전력중개 <b>3.8배</b><span class="rv">반기 1.7억 → 6.5억 원</span></li>
+          <li>닥터아사한 조직 <b>4 → 30명</b><span class="rv">연구소·공장·운영조직 0→1 셋팅</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="principles">
+      <div class="principle"><div class="pt">문제해결능력</div><div class="pd">필요한 부분은 구조를 만들어 해결합니다. 병목이 되는 부분을 분해해 <b>AI로 운영 자동화 시스템을 직접 구축</b>하거나 환경 개선으로 해결하고, 이슈 해결을 <b>매출 성장</b>으로 연결합니다.</div></div>
+      <div class="principle"><div class="pt">오너십</div><div class="pd">0 to 1 경험을 통해 시도하고 실패하는 과정을 <b>조직의 경험으로 남기고</b>, 발굴한 사업 기회는 <b>안정적인 운영·인계까지</b> 진행합니다.</div></div>
+      <div class="principle"><div class="pt">커뮤니케이션</div><div class="pd">물류·생산·개발·투자사 등 다양한 이해관계자와 <b>숫자로 설득·협업</b>하여 일을 추진합니다.</div></div>
+    </div>
+  </div>
+</header>
+
+<section id="cap">
+  <div class="wrap">
+    <div class="eyebrow">Core Strengths</div>
+    <h2 class="h2">사업을 키우는<br>4가지 핵심 강점</h2>
+    <p class="lead">새로운 사업을 발굴해 매출로 키우고, 운영을 체계로 만드는 일 — 10년간 다른 산업을 넘나들며 키워온 강점입니다.</p>
+    <div class="caps">
+      <div class="cap">
+        <div class="ic">🚀</div>
+        <h3>신사업 0→1 런칭 & 운영 안정화</h3>
+        <p>없던 사업을 세우고, 초기 혼란을 표준 프로세스로 정리해 굴러가게 만드는 일. 새 사업·서비스를 빠르게 안착시키는 온보딩·운영 설계가 강점입니다.</p>
+        <div class="tags"><span>수학 과목 신규 런칭</span><span>제본 사업 런칭</span><span>VPP 신사업 기획</span><span>조직 셋팅</span></div>
+      </div>
+      <div class="cap">
+        <div class="ic">🛒</div>
+        <h3>채널 확장 & 파트너십</h3>
+        <p>컬리·쿠팡 입점부터 신규 거래처 발굴·영업, 라이브 쇼핑을 통한 매출 확대, 파트너사 변경을 통한 비용 절감, B2B 협업 제안까지 경험했습니다.</p>
+        <div class="tags"><span>컬리·쿠팡 입점</span><span>신규 거래처 발굴</span><span>채널 전략</span><span>풀필먼트 도입</span></div>
+      </div>
+      <div class="cap">
+        <div class="ic">📊</div>
+        <h3>데이터 기반 사업관리 (매출·손익·KPI)</h3>
+        <p>매출·손익을 직접 책임지고 KPI로 관리해 왔습니다. 성과를 지표로 읽고 리포트로 개선점을 찾는 일을 숫자로 말할 수 있습니다.</p>
+        <div class="tags"><span>매출·손익 분석</span><span>사업 KPI 관리</span><span>투자사 리포팅</span><span>성과지표 수립</span></div>
+      </div>
+      <div class="cap">
+        <div class="ic">⚙️</div>
+        <h3>프로세스·정책 설계 & 유관부서 협업</h3>
+        <p>생산–배송 프로세스, 서비스 정책을 직접 만들고 MD·생산·물류·투자사와 협업했습니다. 유관부서와 함께 만들어가는 일에 경험이 많습니다.</p>
+        <div class="tags"><span>서비스 정책 수립</span><span>운영 프로세스 설계</span><span>전방위 협업</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="ai" class="ai">
+  <div class="wrap">
+    <div class="eyebrow">AI Capability · 최근 역량</div>
+    <h2 class="h2">자동화로 비운 시간을<br>사업 성장에 씁니다</h2>
+    <p class="lead">AI 기반 운영 자동화로 <b>실행 비용과 반복 업무를 줄이고, 확보한 시간을 성장 기회 발굴에 집중</b>했습니다. 비개발자로서 제본 서비스의 반복 수작업을 직접 시스템으로 전환했고, <b>AI로 무엇에 집중할지</b>를 아는 사람입니다.</p>
+    <div class="badge-row">
+      <span class="tag">업무 자동화</span>
+      <span class="tag">데이터 파이프라인 설계</span>
+      <span class="tag">GitHub Actions (CI/CD)</span>
+      <span class="tag">Python</span>
+      <span class="tag">DB 쿼리</span>
+      <span class="tag">Slack API 연동</span>
+      <span class="tag">PDF 자동 가공</span>
+      <span class="tag">Streamlit 웹앱</span>
+      <span class="tag">프로세스 표준화(SOP)</span>
+      <span class="tag">비개발자 친화 도구화</span>
+    </div>
+    <div class="ai-metrics ai-metrics-2">
+      <div class="ai-metric"><div class="n">4h → 1h</div><div class="l">운영 업무 시간 단축 — 일 평균 4시간 걸리던 운영을 자동화로 약 1시간으로</div></div>
+      <div class="ai-metric"><div class="n">매출 40%</div><div class="l">신규 상품 런칭 기여 — 2026년 3월부터 신규 상품이 매출의 약 40%를 창출</div></div>
+    </div>
+
+    <a class="ai-feature" href="https://anna09ips.github.io/cover-maker/" target="_blank" rel="noopener">
+      <div class="fic">🖌️</div>
+      <div class="ftxt">
+        <div class="fk">라이브 데모 · 직접 써보기</div>
+        <div class="ft">웹 표지 제작기 — 누구나 브라우저에서 직접 제작</div>
+        <div class="fd">자동화 시스템과 동일한 좌표·폰트를 웹으로 구현. 디자인 6종 선택 → 교재명·학원명 입력 → 실시간 미리보기 → 인쇄용 PDF 저장. 디자이너 없이도 동일한 결과물.</div>
+      </div>
+      <div class="fgo">열어보기 ↗</div>
+    </a>
+
+    <a class="ai-feature" href="ai-automation.html">
+      <div class="fic">⚙️</div>
+      <div class="ftxt">
+        <div class="fk">종합 케이스 스터디 · 8개 프로젝트</div>
+        <div class="ft">AI 활용 업무 자동화 — 제본 서비스 운영 혁신</div>
+        <div class="fd">문제 정의 → 시스템화 → 데이터 기반 개선. 주문서 자동화·무인 인프라·리포팅 봇·데이터 분석·웹앱·SOP까지 전 과정을 ‘전략·기획 관점’으로 정리.</div>
+      </div>
+      <div class="fgo">자세히 보기 →</div>
+    </a>
+
+    <a class="ai-feature" href="cover-generator.html">
+      <div class="fic">🎯</div>
+      <div class="ftxt">
+        <div class="fk">대표 케이스 스터디</div>
+        <div class="ft">표지 자동생성기 — 디자이너 없이 표지 PDF 자동 생성</div>
+        <div class="fd">Figma · Google Sheets · Python을 연동해 주문 데이터만으로 표지 PDF를 자동 생성. 표지 1장 5~10분 → 2~5초.</div>
+      </div>
+      <div class="fgo">자세히 보기 →</div>
+    </a>
+
+    <div class="ai-projs">
+      <div class="ai-card">
+        <div class="tt">열람출력 파일 생성기</div>
+        <div class="st">PDF 조회·병합·보안 처리 웹앱</div>
+        <div class="ph"><b>Before</b> 열람출력 제본은 PDF 조회·병합 결정·워터마크·암호화 등 단계가 많고 사람 검토가 필요.<br><br><b>After</b> product id로 PDF 조회 → 병합 → 워터마크/암호화 → 다운로드를 <b>Streamlit 웹앱</b>으로 도구화. 중요 결정은 사람이 통제(human-in-the-loop), 동료도 쓰도록 사내 배포.</div>
+        <div class="stack"><span>Streamlit</span><span>Python</span><span>PDF 가공</span><span>사내 배포</span></div>
+      </div>
+      <div class="ai-card">
+        <div class="tt">POD 제본 운영 자동화</div>
+        <div class="st">end-to-end 자동화 시스템</div>
+        <div class="ph"><b>Before</b> 매일 주문 DB를 수기 조회·시트 이관, 제본 PDF를 일일이 다운로드 → 시간 소모·휴먼 에러.<br><br><b>After</b> 전 과정을 분해해 <b>.bat 더블클릭 실행</b>으로 도구화. 비개발자도 코드 없이 안정적으로 운영. 표지 자동 생성·사양 검수 규칙까지 파이프라인에 통합.</div>
+        <div class="stack"><span>Python</span><span>.bat</span><span>DB 조회</span><span>PDF 자동생성</span><span>규칙 엔진</span></div>
+      </div>
+      <div class="ai-card">
+        <div class="tt">매출 리포팅 봇 v2</div>
+        <div class="st">DB → Slack 자동 발송</div>
+        <div class="ph"><b>Before</b> 매출 현황을 매번 사람이 집계해 공유.<br><br><b>After</b> DB 추출 → 가공 → Slack 자동 게시 <b>데이터 파이프라인</b>을 직접 기획·구현. 평일 정시 자동 발송 + 특정일 수동 재발송(workflow_dispatch) 옵션 설계.</div>
+        <div class="stack"><span>GitHub Actions</span><span>Slack API</span><span>스케줄링</span><span>DB 쿼리</span></div>
+      </div>
+      <div class="ai-card">
+        <div class="tt">매출 데이터 분석·인사이트</div>
+        <div class="st">단순 보고 → 의사결정</div>
+        <div class="ph"><b>Before</b> 자동 수집 데이터가 보고용에 머묾.<br><br><b>After</b> 성수기 시즌 패턴, B2B/B2C 채널 트렌드, 핵심 고객(학원) 데이터를 <b>세그멘테이션·매핑</b>해 인사이트로 자산화. 시즌·채널·거래처 단위 매출 패턴 파악 기반 마련.</div>
+        <div class="stack"><span>데이터 분석</span><span>채널·고객 세그</span><span>인사이트 도출</span></div>
+      </div>
+    </div>
+
+    <div class="ai-results">
+      <div class="rt">운영 성과 — 내가 운영한 제본 서비스가 자동화 위에서 성장했다</div>
+      <div class="rs">자동화는 목적이 아니라 수단이었습니다. <b>데이터 분석으로 B2B(학원) 대량 주문 채널을 발굴</b>하고, <b>AI 자동화로 처리 역량을 확보</b>해, 런칭 14개월 만에 월 매출을 약 5배로 키웠습니다. (월 매출, 단위: 만 원)</div>
+      <div class="chartbox"><canvas id="revChart"></canvas></div>
+      <div class="rmetrics">
+        <div class="rm"><div class="n">약 5배</div><div class="l">초기 월 ~200만 원대 → 최근 월 ~1,000만 원대 성장</div></div>
+        <div class="rm"><div class="n">6,562권</div><div class="l">14개월 누적 처리 (누적 1,601건 · 매출 약 5,560만 원)</div></div>
+        <div class="rm"><div class="n">1.5→5.9</div><div class="l">권/건 비율 상승 — B2B 대량 주문 중심으로 체질 전환</div></div>
+      </div>
+    </div>
+
+    <div class="ai-grip">
+      <div class="gt">이 자동화·데이터 역량이 만드는 가치</div>
+      <ul>
+        <li><b>매출 리포팅 봇</b> → 정시 성과 리포트로 경영 가시성 확보</li>
+        <li><b>매출 데이터 분석</b> → 세그먼트 분석으로 성장 기회 발굴</li>
+        <li><b>운영 자동화·SOP</b> → 반복 운영 체계화·인수인계</li>
+        <li><b>사양 검수 규칙화</b> → 운영 품질 편차 제거</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="career">
+  <div class="wrap">
+    <div class="eyebrow">Career</div>
+    <h2 class="h2">경력 타임라인</h2>
+    <p class="lead">교육·에너지·F&amp;B·식품 — 산업은 달랐지만 일의 본질은 같았습니다. 새 사업을 세우고, 채널을 넓히고, 숫자로 운영을 안정시키는 것.</p>
+    <div class="tl">
+
+      <div class="job">
+        <div class="dot"></div>
+        <div class="top">
+          <span class="co">북아이피스 (Bookips)</span>
+          <span class="role">플랫폼 사업개발팀 · BO</span>
+          <span class="when">2024.05 ~ 현재 (2년 2개월)</span>
+        </div>
+        <div class="info">IP 기반 학습 콘텐츠 플랫폼 · 50명 · 매년 2.5배 성장 (’27년 목표 매출 45억)</div>
+        <ul>
+          <li><b>수학 과목 신규 런칭(0→1)</b>·전과목 상품 확장 · <b>제본 사업 신규 런칭</b> · 생산방식 변경(OEM) · 비개발자 <b>AI 운영 자동화 구축</b>으로 제본 서비스 매출 약 5배 성장</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="dot"></div>
+        <div class="top">
+          <span class="co">엔라이튼</span>
+          <span class="role">전력중개 · PO</span>
+          <span class="when">2022.07 ~ 2024.05 (1년 11개월)</span>
+        </div>
+        <div class="info">신재생에너지 전력중개 · 100명 · 회사 매출 548억 (전력중개 ’23년 매출 약 9.2억)</div>
+        <ul>
+          <li>발전량 예측제도 담당, 재직 중 반기 매출 <b>약 3.8배 성장</b> 견인 · 신규 거래처 발굴·영업 · 차세대 <b>VPP 신사업 기획</b></li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="dot"></div>
+        <div class="top">
+          <span class="co">올투딜리셔스 (ATD)</span>
+          <span class="role">베이커리사업부 · 파트장</span>
+          <span class="when">2021.02 ~ 2022.06 (1년 5개월)</span>
+        </div>
+        <div class="info">F&amp;B · 300명 · 매출 200억</div>
+        <ul>
+          <li>신규사업부에서 사업부 월 매출 <b>약 20배 성장</b> 기여 · <b>컬리·쿠팡 채널 발굴·입점</b> · 생산~배송 프로세스 수립 · 물류 풀필먼트 전환</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="dot"></div>
+        <div class="top">
+          <span class="co">ST유니타스</span>
+          <span class="role">스콜레 · CD</span>
+          <span class="when">2019.01 ~ 2021.02 (2년 1개월)</span>
+        </div>
+        <div class="info">성인 직무교육 서비스 ‘스콜레’</div>
+        <ul>
+          <li><b>PBL 기반 직무교육 서비스 런칭</b> · 운영 기획 · 교육 서비스 기획 · 사업관리(매출·손익)</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="dot"></div>
+        <div class="top">
+          <span class="co">㈜닥터아사한</span>
+          <span class="role">사업전략팀</span>
+          <span class="when">2016.04 ~ 2018.10 (2년 7개월)</span>
+        </div>
+        <div class="info">식품 연구·제조 · 30명 · 매출 30억</div>
+        <ul>
+          <li><b>조직 구성 0→1</b>(연구소·공장·운영조직 셋팅) · 투자사 대응·손익 관리 · 신규 과업 진행(국가지원사업 수주·운영, 거래처 확장)</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="proj">
+  <div class="wrap">
+    <div class="eyebrow">Impact</div>
+    <h2 class="h2">임팩트 사례</h2>
+    <p class="lead">숫자로 증명되는 대표 프로젝트입니다. 각 프로젝트를 배경 → 나의 역할 → 성과 중심으로 정리했습니다.</p>
+    <div class="projs">
+
+      <div class="proj">
+        <div class="head">
+          <div class="kpi">20<span class="u">배 성장</span></div>
+          <h3>베이커리 신사업 채널 확장</h3>
+          <div class="ctx">올투딜리셔스 · 베이커리사업부 파트장</div>
+        </div>
+        <div class="body">
+          <p>신규 사업부에서 컬리·쿠팡 등 외부 커머스 채널을 직접 발굴·입점시키고 채널별 전략을 설계. 생산–포장–배송 프로세스를 표준화하고 자체 물류를 풀필먼트로 전환. 재직 기간 동안 사업부 월 매출 1,200만 원 → 2억 4천만 원으로 약 20배 성장.</p>
+          <div class="role-line">▷ 발휘 역량: <b>커머스 채널 확장 · 채널 전략</b> · 운영 프로세스 설계</div>
+        </div>
+      </div>
+
+      <div class="proj">
+        <div class="head">
+          <div class="kpi">3.8<span class="u">배 매출</span></div>
+          <h3>전력중개 사업 운영 & VPP 신사업 기획</h3>
+          <div class="ctx">엔라이튼 · 전력중개 PO</div>
+        </div>
+        <div class="body">
+          <p>발전량 예측제도를 담당하며 매출·손익을 직접 관리, 신규 거래처 발굴과 서비스 개선으로 재직 중 반기 매출 1.7억→6.5억(약 3.8배) 성장을 견인. 제도 변화에 앞서 차세대 VPP 사업을 기획하며 ‘다음 성장 곡선’을 설계.</p>
+          <div class="role-line">▷ 발휘 역량: <b>데이터 기반 성과 분석</b> · 중장기 성장 전략 기획</div>
+        </div>
+      </div>
+
+      <div class="proj">
+        <div class="head">
+          <div class="kpi">0→1<span class="u"> 런칭</span></div>
+          <h3>학습 플랫폼 신규 과목·사업 런칭</h3>
+          <div class="ctx">북아이피스 · 플랫폼 사업개발 BO</div>
+        </div>
+        <div class="body">
+          <p>영어·국어 중심 플랫폼에 수학 과목을 신규 런칭하고 수·사·과로 확장. 제본 사업도 0→1로 런칭·확장하며, 발굴–사업화 셋팅–운영 안정화의 전 과정을 BO 관점에서 책임.</p>
+          <div class="role-line">▷ 발휘 역량: <b>신규 사업 0→1 런칭 · 운영 안정화</b> · BO 전반</div>
+        </div>
+      </div>
+
+      <div class="proj">
+        <div class="head">
+          <div class="kpi">조직 0→1</div>
+          <h3>식품 스타트업 조직·사업 셋팅</h3>
+          <div class="ctx">닥터아사한 · 사업전략팀</div>
+        </div>
+        <div class="body">
+          <p>연구소·공장·운영조직을 처음부터 세우고, 투자사 대응과 손익 관리, 국가지원사업·거래처 확장까지 수행. 무에서 체계를 만들고 유관 조직을 굴러가게 한 경험.</p>
+          <div class="role-line">▷ 발휘 역량: <b>조직·사업 0→1 셋팅 · 유관부서 협업</b> · 사업관리 전반</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <div class="eyebrow">Selected Work</div>
+    <h2 class="h2">최근 작업물</h2>
+    <p class="lead">직접 기획·실행한 PR·랜딩 페이지와 실무 문서입니다. (클릭하면 전체 페이지·원문이 열립니다)</p>
+    <h3 class="worksub" style="margin-top:38px">PR · 랜딩 페이지</h3>
+    <p class="lead" style="margin-top:8px">직접 런칭·확장한 사업들의 PR·랜딩 페이지 <b>(기획 · 디자인&amp;퍼블 커뮤 · 성과분석)</b></p>
+    <div class="gal">
+
+      <a class="gcard" href="full_pod.jpg" target="_blank" rel="noopener">
+        <div class="gthumb"><img src="thumb_pod.jpg" alt="자체교재 제본서비스 랜딩페이지"></div>
+        <div class="ginfo">
+          <div class="gtitle">자체교재 제본서비스</div>
+          <div class="gdesc">제본 서비스 오픈 랜딩 — 표지 무료·간편주문·무료배송 혜택과 선결제 전환 설계.</div>
+          <div class="grole">기획·구성 · 카피 · 디자인 협업 · 성과 분석</div>
+          <div class="gview">전체 보기 →</div>
+        </div>
+      </a>
+
+      <a class="gcard" href="full_med.jpg" target="_blank" rel="noopener">
+        <div class="gthumb"><img src="thumb_med.jpg" alt="메디컬수학 PR 랜딩페이지"></div>
+        <div class="ginfo">
+          <div class="gtitle">메디컬수학 PR</div>
+          <div class="gdesc">메디컬 수학 PR 랜딩 — ‘수학 비밀병기’ 컨셉으로 차별화·학습 효과 소구.</div>
+          <div class="grole">기획·구성 · 카피 · 디자인 협업 · 성과 분석</div>
+          <div class="gview">전체 보기 →</div>
+        </div>
+      </a>
+
+      <a class="gcard" href="full_all.jpg" target="_blank" rel="noopener">
+        <div class="gthumb"><img src="thumb_all.jpg" alt="전과목 확장 PR"></div>
+        <div class="ginfo">
+          <div class="gtitle">전과목 확장</div>
+          <div class="gdesc">전과목(수·사·과) 출시·확장 캠페인 — ‘1등급은 이미 아는 쏠북’ 후킹.</div>
+          <div class="grole">기획·구성 · 카피 · 디자인 협업 · 성과 분석</div>
+          <div class="gview">전체 보기 →</div>
+        </div>
+      </a>
+
+      <a class="gcard" href="full_hwang.jpg" target="_blank" rel="noopener">
+        <div class="gthumb"><img src="thumb_hwang.jpg" alt="황소수학 설명회 랜딩페이지"></div>
+        <div class="ginfo">
+          <div class="gtitle">황소수학</div>
+          <div class="gdesc">수학 콘텐츠 설명회 랜딩 — 차별화 메시지로 신뢰·전환 소구.</div>
+          <div class="grole">기획·구성 · 카피 · 디자인 협업 · 성과 분석</div>
+          <div class="gview">전체 보기 →</div>
+        </div>
+      </a>
+
+      <a class="gcard" href="full_inf.jpg" target="_blank" rel="noopener">
+        <div class="gthumb"><img src="thumb_inf.jpg" alt="인피니트연구소 수학 PR"></div>
+        <div class="ginfo">
+          <div class="gtitle">인피니트 연구소 수학</div>
+          <div class="gdesc">수학 기말 풀패키지 PR — 페인포인트→해결 흐름으로 패키지·혜택 설계.</div>
+          <div class="grole">기획·구성 · 카피 · 디자인 협업 · 성과 분석</div>
+          <div class="gview">전체 보기 →</div>
+        </div>
+      </a>
+
+    </div>
+    <h3 class="worksub">문서 — 기획서 · QA · 제안서</h3>
+    <p class="lead" style="margin-top:8px">사업을 숫자로 설득하고 실행으로 옮긴 실무 문서입니다. (클릭하면 원문이 열립니다)</p>
+    <div class="docs">
+      <a class="doccard" href="https://noon-gasoline-915.notion.site/389827c60dd480e9accad9362ddaa9db" target="_blank" rel="noopener">
+        <div class="dic">📄</div>
+        <div class="dk">기획서 · PRD</div>
+        <div class="dt">제본 서비스 시스템 고도화 상위 기획</div>
+        <div class="dd">배경·문제 정의 → 목표 → 기능 요구사항(운영 어드민·고객 셀프서비스) → 비기능 요구사항 → 유저 시나리오까지 정리한 상위 기획 문서.</div>
+        <div class="dgo">원문 열람 →</div>
+      </a>
+      <a class="doccard" href="https://noon-gasoline-915.notion.site/admin-QA-389827c60dd4805d9735ea1c7950171f" target="_blank" rel="noopener">
+        <div class="dic">✅</div>
+        <div class="dk">QA</div>
+        <div class="dt">어드민 QA 문서</div>
+        <div class="dd">기능별 검수 항목·시나리오·예외 케이스를 정리한 QA 문서. 출시 품질을 직접 점검·관리한 기록.</div>
+        <div class="dgo">원문 열람 →</div>
+      </a>
+      <a class="doccard" href="full_proposal.jpg" target="_blank" rel="noopener">
+        <div class="dic">📝</div>
+        <div class="dk">제안서</div>
+        <div class="dt">타임에듀 학원 콘텐츠 사업화 제안서</div>
+        <div class="dgo">원문 열람 →</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="fit" class="map-sec">
+  <div class="wrap">
+    <div class="eyebrow">Why this role</div>
+    <h2 class="h2">사업개발·BD 직무 ↔ 나의 경험</h2>
+    <p class="lead">매출·거래액과 수익률을 키우는 사업개발/BD 직무에 제 경험을 1:1로 매핑했습니다. <b>숫자를 중심으로 성장 가설을 세워 검증하고 구조화하는 일</b>을 10년간 반복해 왔습니다.</p>
+    <div class="map">
+      <div class="row hd">
+        <div class="c">직무 — 주요 업무</div>
+        <div class="arrow"></div>
+        <div class="c">나의 경험</div>
+      </div>
+      <div class="row">
+        <div class="c jd">매출·거래액 성장 비즈니스 로직 설계</div>
+        <div class="arrow">→</div>
+        <div class="c me">베이커리 20배·전력중개 3.8배·제본 약 5배의 매출 성장을 직접 가설·설계·견인</div>
+      </div>
+      <div class="row">
+        <div class="c jd">수익률 개선 (적자 구조 전환)</div>
+        <div class="arrow">→</div>
+        <div class="c me">매출·손익 직접 관리, 비용 효율화, 사업 KPI 설계·운영</div>
+      </div>
+      <div class="row">
+        <div class="c jd">B2B 제안 · 파트너십 · 설득</div>
+        <div class="arrow">→</div>
+        <div class="c me">컬리·쿠팡 채널 제안·입점, 신규 거래처 발굴·영업, 논리적 설득 구조 설계</div>
+      </div>
+      <div class="row">
+        <div class="c jd">성장 가설 빠른 검증 · 구조화 · 프로세스화</div>
+        <div class="arrow">→</div>
+        <div class="c me">신사업 0→1 발굴 → MVP 실행 → 운영 안정화, SOP·프로세스 표준화</div>
+      </div>
+      <div class="row">
+        <div class="c jd">숫자로 전사 설득 · 과업 추진</div>
+        <div class="arrow">→</div>
+        <div class="c me">투자사 리포팅, 데이터 기반 사업관리, 유관부서 전방위 협업</div>
+      </div>
+      <div class="row">
+        <div class="c jd">필요 시 프로덕트 개선까지 실행</div>
+        <div class="arrow">→</div>
+        <div class="c me">비개발자로서 AI 자동화로 운영·프로덕트를 직접 개선·구축</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="close" style="border-bottom:none">
+  <div class="wrap">
+    <div class="eyebrow">Let's talk</div>
+    <h2 class="h2">새로운 사업의 다음 성장을<br>숫자로 증명하고 싶습니다.</h2>
+    <p class="quote">‘0 to 1’에서 멈추지 않고, 발굴한 사업을 매출로·체질로 키워온 것이 제가 10년간 해온 일입니다.</p>
+    <div class="contact">
+      <a class="primary" href="mailto:hji5816@gmail.com">hji5816@gmail.com</a>
+      <a href="#career">경력 자세히 보기</a>
+    </div>
+  </div>
+</section>
+
+<footer>© 2026 안효진 · 사업개발·BD 포트폴리오</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script>
+(function(){
+  var el=document.getElementById('revChart'); if(!el||!window.Chart) return;
+  var labels=['25.5','25.6','25.7','25.8','25.9','25.10','25.11','25.12','26.1','26.2','26.3','26.4','26.5','26.6'];
+  var data=[10,250,150,200,220,180,290,120,160,190,1040,1020,820,990];
+  var colors=data.map(function(v){return v>=800?'#ff3b3b':'rgba(255,107,107,.45)';});
+  new Chart(el.getContext('2d'),{
+    type:'bar',
+    data:{labels:labels,datasets:[{data:data,backgroundColor:colors,borderRadius:5,maxBarThickness:34}]},
+    options:{
+      responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},
+        tooltip:{callbacks:{label:function(c){return c.parsed.y+'만 원';}}}},
+      scales:{
+        x:{grid:{display:false},ticks:{color:'#9a9da6',font:{size:11}}},
+        y:{grid:{color:'#2b2d34'},ticks:{color:'#9a9da6',font:{size:11},callback:function(v){return v>=1000?(v/1000)+'천만':v+'';}},beginAtZero:true}
+      }
+    }
+  });
+})();
+</script>
+
+</body>
+</html>

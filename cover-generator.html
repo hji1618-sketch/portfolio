@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>표지 자동생성기 · 케이스 스터디 | 안효진</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<style>
+  :root{
+    --ink:#15161a; --ink2:#3b3d44; --muted:#7c7f88;
+    --line:#e7e7ea; --bg:#ffffff; --bg2:#f7f6f4;
+    --accent:#ff3b3b; --accent-soft:#fff0ee; --accent-ink:#c81f1f;
+    --gold:#0f9d8c; --maxw:880px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:"Pretendard Variable",Pretendard,system-ui,sans-serif;color:var(--ink);background:var(--bg2);line-height:1.7;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
+  a{color:inherit;text-decoration:none}
+  /* TOP BAR */
+  .topbar{position:sticky;top:0;z-index:50;background:rgba(247,246,244,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:56px}
+  .topbar a.back{font-size:14px;font-weight:700;color:var(--ink2)}
+  .topbar a.back:hover{color:var(--accent)}
+  .topbar .who{font-size:13px;font-weight:700;color:var(--muted)}
+  /* HERO */
+  .hero{background:var(--bg);border-bottom:1px solid var(--line);padding:60px 0 46px}
+  .hero .tag{display:inline-block;font-size:12.5px;font-weight:700;color:var(--accent-ink);background:var(--accent-soft);padding:5px 13px;border-radius:999px;margin-bottom:18px}
+  .hero h1{font-size:clamp(30px,5.4vw,46px);font-weight:800;letter-spacing:-.03em;line-height:1.1}
+  .hero .oneline{margin-top:16px;font-size:17px;color:var(--ink2);font-weight:500;max-width:680px}
+  .meta{margin-top:26px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  @media(max-width:640px){.meta{grid-template-columns:1fr}}
+  .meta .m{border:1px solid var(--line);border-radius:12px;padding:13px 15px;background:var(--bg2)}
+  .meta .m .k{font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.04em;text-transform:uppercase}
+  .meta .m .v{margin-top:3px;font-size:14px;font-weight:600;color:var(--ink)}
+  /* SECTION */
+  .card{background:var(--bg);border:1px solid var(--line);border-radius:20px;padding:36px;margin-top:22px}
+  .card:first-of-type{margin-top:28px}
+  .eyebrow{font-size:12px;font-weight:800;letter-spacing:.12em;color:var(--accent);text-transform:uppercase}
+  .h2{font-size:24px;font-weight:800;letter-spacing:-.02em;margin-top:8px;line-height:1.2}
+  .card > p{margin-top:14px;color:var(--ink2);font-size:15.5px}
+  .card > p b{color:var(--ink);font-weight:700}
+  .plist{margin-top:18px;display:grid;gap:12px}
+  .pitem{border-left:3px solid var(--accent);background:var(--bg2);border-radius:0 10px 10px 0;padding:13px 16px}
+  .pitem .t{font-weight:800;font-size:14.5px}
+  .pitem .d{font-size:14px;color:var(--ink2);margin-top:2px}
+  .verdict{margin-top:20px;background:var(--ink);color:#fff;border-radius:12px;padding:16px 20px;font-size:15px;font-weight:600}
+  .verdict b{color:#ff8b8b}
+  /* FLOW DIAGRAM */
+  .flow{margin-top:22px}
+  .flow-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media(max-width:640px){.flow-row{grid-template-columns:1fr}}
+  .node{border:1px solid var(--line);border-radius:14px;padding:16px;background:var(--bg2);text-align:center}
+  .node .lbl{font-size:11px;font-weight:800;color:var(--accent);letter-spacing:.03em}
+  .node .nm{font-size:14px;font-weight:700;margin-top:3px}
+  .node .api{margin-top:6px;font-size:11.5px;color:var(--muted);font-weight:600}
+  .node .out{margin-top:6px;font-size:12px;color:var(--ink2);background:#fff;border:1px solid var(--line);border-radius:7px;padding:3px 8px;display:inline-block}
+  .arrowdown{text-align:center;color:var(--accent);font-size:20px;font-weight:800;margin:8px 0}
+  .procbox{border:2px solid var(--accent);border-radius:14px;padding:18px 20px;background:var(--accent-soft)}
+  .procbox .pt{font-size:13.5px;font-weight:800;color:var(--accent-ink)}
+  .procbox ul{margin-top:8px;list-style:none;display:grid;gap:5px}
+  .procbox li{position:relative;padding-left:16px;font-size:13.5px;color:var(--ink2)}
+  .procbox li::before{content:"›";position:absolute;left:3px;color:var(--accent);font-weight:800}
+  .resultnode{border:1px solid var(--gold);background:#eefaf8;border-radius:14px;padding:14px 18px;text-align:center}
+  .resultnode .nm{font-size:14.5px;font-weight:800;color:#0a7a6c}
+  .resultnode .sub{font-size:12px;color:#0f9d8c;margin-top:3px;font-family:ui-monospace,monospace;word-break:break-all}
+  /* TABLE */
+  .tbl{margin-top:18px;width:100%;border-collapse:collapse;font-size:14px;overflow:hidden;border-radius:12px;border:1px solid var(--line)}
+  .tbl th,.tbl td{padding:11px 14px;text-align:left;border-bottom:1px solid var(--line)}
+  .tbl th{background:var(--bg2);font-weight:800;font-size:12.5px;color:var(--ink)}
+  .tbl tr:last-child td{border-bottom:none}
+  .tbl td b{color:var(--accent-ink);font-weight:800}
+  .tbl .area{font-weight:700;color:var(--ink2);white-space:nowrap}
+  .note{margin-top:10px;font-size:12px;color:var(--muted);font-style:italic}
+  /* IDEAS / SHOWS */
+  .grid2{margin-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media(max-width:640px){.grid2{grid-template-columns:1fr}}
+  .ibox{border:1px solid var(--line);border-radius:12px;padding:16px 18px;background:var(--bg2)}
+  .ibox .num{font-size:12px;font-weight:800;color:var(--accent)}
+  .ibox .t{font-size:14.5px;font-weight:800;margin-top:2px}
+  .ibox .d{font-size:13.5px;color:var(--ink2);margin-top:4px}
+  .chips{margin-top:18px;display:flex;flex-wrap:wrap;gap:8px}
+  .chips span{font-size:13px;font-weight:700;color:var(--ink2);background:var(--bg2);border:1px solid var(--line);padding:7px 14px;border-radius:999px}
+  .shows{margin-top:16px;list-style:none;display:grid;gap:9px}
+  .shows li{position:relative;padding-left:26px;font-size:15px;color:var(--ink2)}
+  .shows li::before{content:"✓";position:absolute;left:0;top:0;color:#fff;background:var(--accent);width:18px;height:18px;border-radius:50%;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;margin-top:3px}
+  .shows li b{color:var(--ink);font-weight:700}
+  /* NEXT */
+  .navnext{margin:30px 0 70px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  .navnext a{font-size:14px;font-weight:700;border:1px solid var(--line);border-radius:999px;padding:12px 22px;background:var(--bg)}
+  .navnext a:hover{border-color:var(--accent);color:var(--accent)}
+  .navnext a.primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+  footer{padding:30px 0;text-align:center;font-size:12px;color:var(--muted)}
+  /* HERO LIVE LINKS */
+  .herolinks{margin-top:24px;display:flex;flex-wrap:wrap;gap:10px}
+  .herolinks a{display:inline-flex;align-items:center;gap:7px;font-size:14px;font-weight:700;padding:11px 18px;border-radius:999px;border:1px solid var(--line);background:var(--bg);transition:.2s}
+  .herolinks a:hover{transform:translateY(-2px)}
+  .herolinks a.live{background:var(--accent);color:#fff;border-color:var(--accent);box-shadow:0 12px 26px -14px rgba(255,59,59,.7)}
+  .herolinks a.repo{background:#15161a;color:#fff;border-color:#15161a}
+  .herolinks .dot{width:7px;height:7px;border-radius:50%;background:#fff;animation:pulse 1.6s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <a class="back" href="index.html">← 포트폴리오로 돌아가기</a>
+    <span class="who">안효진 · Case Study</span>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="tag">AI 협업 자동화 · 대표 프로젝트</span>
+    <h1>표지 자동생성기</h1>
+    <p class="oneline">디자이너 손을 거치지 않고도, 주문 데이터만 있으면 제본 표지 PDF가 자동으로 생성되는 <b>비개발자 × AI 협업 자동화</b> 프로젝트. 대량 처리는 로컬 .bat 자동화로, 한 건씩은 웹 도구로 — 둘 다 동일한 결과물을 냅니다.</p>
+    <div class="herolinks">
+      <a class="live" href="https://anna09ips.github.io/cover-maker/" target="_blank" rel="noopener"><span class="dot"></span>라이브 데모 — 웹 표지 제작기</a>
+      <a class="repo" href="https://github.com/anna09ips/cover-maker" target="_blank" rel="noopener">GitHub 소스 보기 ↗</a>
+    </div>
+    <div class="meta">
+      <div class="m"><div class="k">역할</div><div class="v">기획 + AI 협업 구축 (비개발자)</div></div>
+      <div class="m"><div class="k">기간</div><div class="v">2025.05 ~ 진행 중 (단계적 개선)</div></div>
+      <div class="m"><div class="k">산출물</div><div class="v">① 로컬 .bat 자동화 + ② 웹 표지 제작 도구</div></div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="card">
+    <div class="eyebrow">Problem</div>
+    <h2 class="h2">왜 만들었나요?</h2>
+    <p>쏠북의 제본 서비스는 매일 들어오는 주문마다 <b>표지를 별도로 디자인해 PDF로 만들어 인쇄</b>하는 과정이 필요했습니다. 디자인은 6종의 정해진 템플릿(오트밀·레인보우·오렌지·빌딩·스카이·픽셀)을 썼지만, 실제 작업은 <b>디자이너가 한 건씩 손으로 텍스트를 바꿔 PDF로 저장</b>하는 방식이었습니다.</p>
+    <div class="plist">
+      <div class="pitem"><div class="t">속도 병목</div><div class="d">표지 1장에 약 5~10분. 하루 수십 건이 쌓이면 디자이너 시간이 통째로 묶임.</div></div>
+      <div class="pitem"><div class="t">디자이너 의존도</div><div class="d">디자이너가 자리를 비우거나 다른 업무 중이면 표지 작업 전체가 멈춤.</div></div>
+      <div class="pitem"><div class="t">수작업 편차</div><div class="d">학원명·교재명 길이에 따라 매번 폰트 크기·줄간격을 손으로 조정 → 같은 디자인인데도 결과물이 미묘하게 달라짐.</div></div>
+      <div class="pitem"><div class="t">반복 노동의 비효율</div><div class="d">디자인은 똑같고 글자만 다른데, 같은 작업을 매번 처음부터 반복.</div></div>
+    </div>
+    <div class="verdict">→ <b>“이건 사람이 할 일이 아니다, 자동화해야 한다”</b>는 판단으로 프로젝트를 시작했습니다.</div>
+  </div>
+
+  <div class="card">
+    <div class="eyebrow">Approach</div>
+    <h2 class="h2">어떻게 만들었나요?</h2>
+    <p>저는 비개발자 기획자입니다. 코드는 거의 못 쓰지만 <b>Claude</b>와 대화하며 단계별로 시스템을 설계·구현했습니다. AI가 작성한 코드를 제가 검증하고, 결과물을 보며 피드백을 주는 방식으로 완성도를 점진적으로 높였습니다.</p>
+
+    <div class="flow">
+      <div class="flow-row">
+        <div class="node">
+          <div class="lbl">Input ①</div>
+          <div class="nm">디자이너 표지 디자인 6종</div>
+          <div class="api">좌표·폰트·색상 정의 (디자이너 샘플 PDF 기준)</div>
+          <div class="out">→ slots.json</div>
+        </div>
+        <div class="node">
+          <div class="lbl">Input ②</div>
+          <div class="nm">구글시트 주문관리 탭</div>
+          <div class="api">Google Sheets API로 주문 데이터 자동 조회</div>
+          <div class="out">→ 교재명·학원명·전화번호 등</div>
+        </div>
+      </div>
+      <div class="arrowdown">▼</div>
+      <div class="procbox">
+        <div class="pt">② Python 처리 (PyMuPDF + Pillow)</div>
+        <ul>
+          <li>한글을 이미지로 렌더링해 폰트 미설치 환경에서도 깨짐 방지</li>
+          <li>글자 길이에 따라 폰트 크기 95~60% 자동 축소</li>
+          <li>2줄 자동 분할 + 단어 단위 균형 분할 + 줄임표 처리</li>
+        </ul>
+      </div>
+      <div class="arrowdown">▼</div>
+      <div class="resultnode">
+        <div class="nm">④ 인쇄용 표지 PDF 자동 생성 (앞면+뒷면 A4 2쪽 · 6종 중 선택)</div>
+        <div class="sub">Downloads/YYYY-MM-DD/ 폴더에 자동 저장<br>{주문번호}_표지_{고객명}_{수량}_{색상}_{제본방식}_{페이지}_{원본파일명}.pdf</div>
+      </div>
+      <div style="margin-top:14px;font-size:13px;color:var(--muted);background:var(--bg2);border:1px dashed var(--line);border-radius:10px;padding:12px 16px">💡 <b style="color:var(--ink)">웹 버전(라이브 데모)</b>은 같은 좌표·폰트를 브라우저에서 사용해, 디자이너가 아니어도 누구나 직접 표지를 만들 수 있게 한 또 하나의 갈래입니다.</div>
+    </div>
+
+    <h3 style="margin-top:28px;font-size:16px;font-weight:800">사용한 기술</h3>
+    <table class="tbl">
+      <tr><th>영역</th><th>사용한 것</th></tr>
+      <tr><td class="area">AI 협업</td><td>Claude (Cowork mode)</td></tr>
+      <tr><td class="area">자동화 언어</td><td>Python 3</td></tr>
+      <tr><td class="area">PDF 처리</td><td>PyMuPDF (fitz)</td></tr>
+      <tr><td class="area">한글 렌더링</td><td>Pillow — 이미지로 렌더링 후 PDF 임베드 (폰트 미설치 환경에서도 깨짐 없음)</td></tr>
+      <tr><td class="area">디자인 소스 분석</td><td>(초기) Figma REST API → (현행) 디자이너 샘플 PDF 픽셀 측정</td></tr>
+      <tr><td class="area">데이터 연동</td><td>Google Sheets API (gspread)</td></tr>
+      <tr><td class="area">한글 폰트</td><td>Pretendard 9 weights · Eulyoo1945 · RiaSans · 학교안심리코더오 · HSHwalkongSerif</td></tr>
+      <tr><td class="area">웹 도구</td><td>단일 HTML + jsPDF (GitHub Pages 배포, 폰트·이미지 base64 내장)</td></tr>
+      <tr><td class="area">운영자 인터페이스</td><td>Windows .bat 더블클릭 / 웹 링크 접속 (비개발자도 운영 가능)</td></tr>
+    </table>
+
+    <h3 style="margin-top:28px;font-size:16px;font-weight:800">자동화의 핵심 아이디어</h3>
+    <div class="grid2">
+      <div class="ibox"><div class="num">01</div><div class="t">디자인–데이터 분리</div><div class="d">디자인은 템플릿으로 고정, 글자 교체는 100% 자동화.</div></div>
+      <div class="ibox"><div class="num">02</div><div class="t">자동 레이아웃</div><div class="d">글자 길이에 맞춰 폰트 크기 축소·2줄 분할·균형 분할점 탐색을 자동 처리.</div></div>
+      <div class="ibox"><div class="num">03</div><div class="t">운영–제작 두 갈래</div><div class="d">대량 처리는 .bat 자동화, 한 건씩은 웹 도구 — 둘 다 동일한 결과물.</div></div>
+      <div class="ibox"><div class="num">04</div><div class="t">운영자 진입장벽 제거</div><div class="d">비개발자도 .bat 더블클릭 한 번, 또는 웹 링크 접속 한 번이면 사용 가능.</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="eyebrow">Problem Solving</div>
+    <h2 class="h2">기술적으로 풀었던 문제 <span style="font-size:14px;font-weight:600;color:var(--muted)">— 역량 사례</span></h2>
+    <p>처음부터 매끄럽게 된 건 아니었습니다. 좌표 정확도를 잡는 과정에서 여러 시행착오를 거쳤고, 그 과정이 곧 <b>문제 정의·검증·개선</b> 역량을 보여줍니다.</p>
+    <div class="plist">
+      <div class="pitem"><div class="t">Figma API 연동 시도 → 더 정확한 방식으로 전환</div><div class="d">초기엔 Figma REST API로 원본에서 좌표·폰트·색상을 자동 추출했지만, 실제로는 디자이너가 내보낸 <b>샘플 PDF의 텍스트 좌표가 최종 인쇄 기준</b>이라는 점이 더 정확했습니다. 기준을 샘플 PDF로 통일하고 Figma 경로는 정리. → “두 시스템을 다 연동해 보고, 정확도를 기준으로 더 나은 쪽을 선택”한 사례.</div></div>
+      <div class="pitem"><div class="t">좌표 기준 불일치 해결</div><div class="d">엔진은 글자의 윗변(em-top)을, 웹은 밑줄(baseline)을 기준으로 좌표를 해석해 둘이 어긋남 → <b>baseline 기준으로 통일</b>해 근본 원인 제거.</div></div>
+      <div class="pitem"><div class="t">템플릿 비율 문제 발견</div><div class="d">일부 배경이 A4 비율이 아니어서 글자가 ~25pt 밀려 선에 붙는 현상 → <b>전 템플릿을 A4 비율 배경으로 교체.</b></div></div>
+      <div class="pitem"><div class="t">6종 전면 최신화</div><div class="d">모든 템플릿의 배경·좌표·폰트·색상을 최신 디자이너 샘플 기준으로 교체하고, <b>픽셀 단위 겹침 비교로 검증.</b></div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="eyebrow">Result</div>
+    <h2 class="h2">결과는?</h2>
+    <table class="tbl">
+      <tr><th>항목</th><th>Before</th><th>After</th><th>효과</th></tr>
+      <tr><td class="area">표지 1장 제작</td><td>약 5~10분 (수작업)</td><td>약 2~5초 (자동화)</td><td><b>약 100~300배 단축</b></td></tr>
+      <tr><td class="area">일일 처리량</td><td>디자이너 가용시간에 비례</td><td>클릭 한 번 일괄 처리</td><td><b>사실상 무제한</b></td></tr>
+      <tr><td class="area">디자이너 투입</td><td>표지 작업 100%</td><td>템플릿 디자인만</td><td><b>표지 텍스트 작업 의존도 0%</b></td></tr>
+      <tr><td class="area">품질 편차</td><td>작업자마다 다름</td><td>동일 알고리즘·좌표</td><td><b>100% 일관성</b></td></tr>
+      <tr><td class="area">운영 가능 인원</td><td>디자이너만</td><td>누구나 (.bat·웹 링크)</td><td><b>운영 부담 분산</b></td></tr>
+    </table>
+    <p class="note">* 정량 수치 일부는 추정치로, 실측 후 업데이트 예정입니다.</p>
+    <div class="grid2" style="margin-top:20px">
+      <div class="ibox"><div class="t">디자이너는 본업에 집중</div><div class="d">반복 노동에서 해방되어 새 템플릿 디자인 등 창의적 업무에 시간 투입.</div></div>
+      <div class="ibox"><div class="t">확장성 확보</div><div class="d">새 디자인은 샘플 PDF로 배경·좌표만 교체하면 추가 가능.</div></div>
+      <div class="ibox"><div class="t">품질 일관성</div><div class="d">“어제와 오늘 표지가 미묘하게 다르다”는 문제 해소.</div></div>
+      <div class="ibox"><div class="t">운영 자유도</div><div class="d">디자이너 부재 시에도 기획자·CS 누구나 운영 가능.</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="eyebrow">Takeaway</div>
+    <h2 class="h2">이 프로젝트가 보여주는 것</h2>
+    <ul class="shows">
+      <li><b>AI를 활용한 비개발자의 실무 자동화 구축 역량</b></li>
+      <li><b>Google Sheets · Figma · Python</b> 등 이종 시스템 연동 설계, 그리고 <b>정확도 기준의 기술 선택</b></li>
+      <li>디자인–개발 협업 파이프라인 <b>자동화 기획 능력</b></li>
+      <li>운영자(현장 사용자) 친화적 <b>UX 설계</b> (.bat 더블클릭 / 웹 링크로 단순화)</li>
+      <li>단계적 검증과 개선 — <b>PoC → 좌표 추출 → 기준 통일 → 픽셀 검증 → 실운영</b></li>
+    </ul>
+    <div class="chips">
+      <span>AI 협업(Claude)</span><span>Python</span><span>PyMuPDF</span><span>Pillow</span><span>jsPDF</span><span>Google Sheets API</span><span>GitHub Pages</span><span>자동화 기획</span><span>비개발자 도구화</span>
+    </div>
+  </div>
+
+  <div class="navnext">
+    <a href="index.html">← 포트폴리오 메인</a>
+    <a class="primary" href="index.html#ai">AI 활용 역량 더 보기 →</a>
+  </div>
+
+</div>
+
+<footer>© 2026 안효진 · 표지 자동생성기 케이스 스터디</footer>
+
+</body>
+</html>
